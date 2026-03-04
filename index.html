@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meine größte Entschuldigung</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+    text-align: center;
+    color: #444;
+}
+
+.section {
+    display: none;
+    padding: 60px 20px;
+}
+
+.active {
+    display: block;
+}
+
+h1 {
+    color: #d63384;
+}
+
+img {
+    max-width: 85%;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    margin: 25px 0;
+}
+
+button {
+    padding: 14px 28px;
+    margin: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff99c8, #ff66a3);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.big-heart {
+    font-size: 60px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#noBtn {
+    position: absolute;
+}
+</style>
+</head>
+<body>
+
+<div id="page1" class="section active">
+    <h1>Meine größte Entschuldigung an dich</h1>
+    <img src="bild.jpg" alt="Unser Bild">
+    <br>
+    <button onclick="nextPage('page2')">Weiter</button>
+</div>
+
+<div id="page2" class="section">
+    <h1>Von ganzem Herzen...</h1>
+    <p style="max-width:600px;margin:auto;">
+   Ich möchte dir noch einmal von ganzem Herzen sagen, wie leid mir alles tut. Ich weiß, dass ich dich verletzt habe, und ich schäme mich für meine Worte und mein Verhalten. Dass ich dich angeschrien habe und dich mit so schlimmen Worten dargestellt habe, ist etwas, das ich zutiefst bereue.
+
+Du bist für mich kein schlechter Mensch gewesen und du hast so etwas nicht verdient. In diesem Moment habe ich meine Emotionen nicht kontrollieren können und habe dich dadurch sehr verletzt. Das war falsch, unfair und respektlos von mir.
+
+Ich möchte wirklich an mir arbeiten, weil du mir wichtig bist. Wenn mich in Zukunft etwas stört oder belastet, möchte ich ruhig mit dir darüber reden, statt dich anzuschreien oder dich mit Worten zu verletzen.
+
+Ich verspreche nicht, perfekt zu sein, aber ich möchte mich bemühen, ein besserer, geduldigerer und respektvoller Mensch für dich zu werden. Ich bereue alles, was ich gesagt und getan habe, und es tut mir von ganzem Herzen leid.
+
+Du bedeutest mir sehr viel, und ich hoffe, dass du eines Tages sehen kannst, wie ernst mir meine Veränderung ist.
+    </p>
+    <br>
+    <button onclick="nextPage('page3')">Weiter</button>
+</div>
+
+<div id="page3" class="section">
+    <h1>Nimmst du meine Entschuldigung an?</h1>
+    <div class="big-heart">❤️</div>
+    <br>
+    <button onclick="answerYes()">Ja 💕</button>
+    <button id="noBtn" onmouseover="moveButton()">Nein 💔</button>
+    <p id="response" style="margin-top:40px;font-size:1.3em;"></p>
+</div>
+
+<script>
+function nextPage(pageId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(pageId).classList.add('active');
+}
+
+function answerYes() {
+    document.getElementById("response").innerHTML =
+        "Danke ❤️ Du machst mich zum glücklichsten Menschen. Ich verspreche dir, es besser zu machen.";
+}
+
+function moveButton() {
+    const button = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
